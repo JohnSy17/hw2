@@ -92,12 +92,25 @@ Studio.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 # puts "Actors: #{Actor.all.count}" #expect 0; Test pass; ensured functionality
-# Add initial data
+# Add initial movie data
 batman_begins = Movie.new
 batman_begins["title"] = "Batman Begins"
 batman_begins["year_released"] = 2005
 batman_begins["rated"] = "PG-13"
 batman_begins.save 
+
+dark_knight = Movie.new
+dark_knight["title"] = "The Dark Knight"
+dark_knight["year_released"] = 2008
+dark_knight["rated"] = "PG-13"
+dark_knight.save
+
+knight_rises = Movie.new
+knight_rises["title"] = "The Dark Knight Rises"
+knight_rises["year_released"] = 2012
+knight_rises["rated"] = "PG-13"
+knight_rises.save
+
 
 p Movie.all
 
