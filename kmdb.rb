@@ -266,6 +266,13 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+for role in Role.all
+  title_helper = Movie.find_by(id: role["movie_id"])["title"]
+  actor_helper = Actor.find_by(id: role["actor_id"])["name"]
+  role_helper = role["character_name"]
+  puts "#{title_helper}   #{actor_helper}   #{role_helper}"
+end
+
 
 # Prints a header for the agent's list of represented actors output
 puts ""
