@@ -282,3 +282,7 @@ puts ""
 
 # Query the actor data and loop through the results to display the agent's list of represented actors output.
 # TODO!
+for agent in Agent.all
+  agent_helper = Actor.find_by(agent_id: agent["id"])["name"]
+  puts "#{agent_helper}"  
+end
