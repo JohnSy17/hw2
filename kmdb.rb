@@ -111,12 +111,29 @@ knight_rises["year_released"] = 2012
 knight_rises["rated"] = "PG-13"
 knight_rises.save
 
+# Add actors to their database
+total_cast = ["Christian Bale", "Michael Caine", "Liam Neeson", "Katie Holmes",
+ "Gary Oldman", "Heath Ledger", 
+ "Aaron Eckhart", "Maggie Gyllenhaal", "Tom Hardy",
+ "Joseph Gordon-Levitt", "Anne Hathaway"]
 
-p Movie.all
+for name in total_cast
+  actor_helper = Actor.new
+  actor_helper["name"] = name
+  actor_helper.save
+end
 
+# Add studio
+studio_helper = Studio.new
+studio_helper["Name"] = "Warner Bros."
+studio_helper.save
 
+# Add agent name
+agent_helper = Agent.new
+agent_helper["name"] = "Ari Emanuel"
+agent_helper.save
 
-# Match foreign keys as appropriate
+# Match foreign keys to assign roles and agents
 
 
 
