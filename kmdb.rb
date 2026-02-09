@@ -92,23 +92,31 @@ Studio.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 # puts "Actors: #{Actor.all.count}" #expect 0; Test pass; ensured functionality
+# Add studio
+studio_helper = Studio.new
+studio_helper["Name"] = "Warner Bros."
+studio_helper.save
+
 # Add initial movie data
 batman_begins = Movie.new
 batman_begins["title"] = "Batman Begins"
 batman_begins["year_released"] = 2005
 batman_begins["rated"] = "PG-13"
+batman_begins["studio_id"] = Studio.find_by(Name: "Warner Bros.")["id"]
 batman_begins.save 
 
 dark_knight = Movie.new
 dark_knight["title"] = "The Dark Knight"
 dark_knight["year_released"] = 2008
 dark_knight["rated"] = "PG-13"
+dark_knight["studio_id"] = Studio.find_by(Name: "Warner Bros.")["id"]
 dark_knight.save
 
 knight_rises = Movie.new
 knight_rises["title"] = "The Dark Knight Rises"
 knight_rises["year_released"] = 2012
 knight_rises["rated"] = "PG-13"
+knight_rises["studio_id"] = Studio.find_by(Name: "Warner Bros.")["id"]
 knight_rises.save
 
 # Add actors to their database
@@ -123,19 +131,121 @@ for name in total_cast
   actor_helper.save
 end
 
-# Add studio
-studio_helper = Studio.new
-studio_helper["Name"] = "Warner Bros."
-studio_helper.save
-
 # Add agent name
 agent_helper = Agent.new
 agent_helper["name"] = "Ari Emanuel"
 agent_helper.save
 
 # Match foreign keys to assign roles and agents
+# Batman Begins Roles
+role_helper = Role.new
+role_helper["character_name"] = "Bruce Wayne"
+role_helper["actor_id"] = Actor.find_by(name: "Christian Bale")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "Batman Begins")["id"]
+role_helper.save
 
+role_helper = Role.new
+role_helper["character_name"] = "Alfred"
+role_helper["actor_id"] = Actor.find_by(name: "Michael Caine")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "Batman Begins")["id"]
+role_helper.save
 
+role_helper = Role.new
+role_helper["character_name"] = "Ra's Al Ghul"
+role_helper["actor_id"] = Actor.find_by(name: "Liam Neeson")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "Batman Begins")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Rachel Dawes"
+role_helper["actor_id"] = Actor.find_by(name: "Katie Holmes")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "Batman Begins")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Commissioner Gordon"
+role_helper["actor_id"] = Actor.find_by(name: "Gary Oldman")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "Batman Begins")["id"]
+role_helper.save
+
+# Dark Knight Roles
+role_helper = Role.new
+role_helper["character_name"] = "Bruce Wayne"
+role_helper["actor_id"] = Actor.find_by(name: "Christian Bale")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Alfred"
+role_helper["actor_id"] = Actor.find_by(name: "Michael Caine")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Joker"
+role_helper["actor_id"] = Actor.find_by(name: "Heath Ledger")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Rachel Dawes"
+role_helper["actor_id"] = Actor.find_by(name: "Maggie Gyllenhaal")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Commissioner Gordon"
+role_helper["actor_id"] = Actor.find_by(name: "Gary Oldman")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Harvey Dent"
+role_helper["actor_id"] = Actor.find_by(name: "Aaron Eckhart")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight")["id"]
+role_helper.save
+
+# Dark Knight Rises Roles
+role_helper = Role.new
+role_helper["character_name"] = "Bruce Wayne"
+role_helper["actor_id"] = Actor.find_by(name: "Christian Bale")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Commissioner Gordon"
+role_helper["actor_id"] = Actor.find_by(name: "Gary Oldman")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Bane"
+role_helper["actor_id"] = Actor.find_by(name: "Tom Hardy")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "John Blake"
+role_helper["actor_id"] = Actor.find_by(name: "Joseph Gordon-Levitt")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Selina Kyle"
+role_helper["actor_id"] = Actor.find_by(name: "Anne Hathaway")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+role_helper = Role.new
+role_helper["character_name"] = "Alfred"
+role_helper["actor_id"] = Actor.find_by(name: "Michael Caine")["id"]
+role_helper["movie_id"] = Movie.find_by(title: "The Dark Knight Rises")["id"]
+role_helper.save
+
+# Match Agent to Christian Bale
+agent_bale = Actor.find_by(name: "Christian Bale")
+agent_bale["agent_id"] = Agent.find_by(name: "Ari Emanuel")["id"]
+agent_bale.save
 
 # Prints a header for the movies output
 puts "Movies"
