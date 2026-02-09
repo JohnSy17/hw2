@@ -78,13 +78,34 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Actor.destroy_all
+Agent.destroy_all
+Role.destroy_all
+Movie.destroy_all
+Studio.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
+# Generated these via the terminal commands discussed in class. See migration files for more information.
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+# puts "Actors: #{Actor.all.count}" #expect 0; Test pass; ensured functionality
+# Add initial data
+batman_begins = Movie.new
+batman_begins["title"] = "Batman Begins"
+batman_begins["year_released"] = 2005
+batman_begins["rated"] = "PG-13"
+batman_begins.save 
+
+p Movie.all
+
+
+
+# Match foreign keys as appropriate
+
+
 
 # Prints a header for the movies output
 puts "Movies"
